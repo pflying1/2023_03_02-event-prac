@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <ul id="menu">
+      <li>item-1</li>
+      <li>item-2</li>
+      <li>item-3</li>
+      <li>item-4</li>
+      <li>item-5</li>
+    </ul>
+  </div>
+  <script>
+    const menu = document.getElementById('menu');
+    //왔다갔다 해야하는 단점이 있다. 
+    const firstLi = document.querySelector('#menu > li:nth-child(1)');
+    console.log(firstLi)
+    console.dir(menu.children);
+    // menu.children[0].style.color = "royalblue";
+    // menu.children[1].style.color = "royalblue";
+    // menu.children[2].style.color = "royalblue";
+    // menu.children[3].style.color = "royalblue";
+    // menu.children[4].style.color = "royalblue";
+    let switchValue = true;
+    menu.addEventListener('click', function(){
+      if(switchValue === true) {
+        for(let i = 0; i<menu.children.length; i++) {
+          menu.children[i].style.color = "white";
+          menu.style.backgroundColor = "black";
+        }
+        switchValue = false;
+      }else {
+        for(let i = 0; i<menu.children.length; i++) {
+          menu.children[i].style.color = "black";
+          menu.style.backgroundColor = "white";
+        }
+        switchValue = true;
+      }
+    });
+
+    //함수 선언 
+    //객체안에 있을때는 매서드 
+    //매개변수 자리에 있는 것은 콜백
+    //3개가 같은 뜻
+/*     menu.children[0].addEventListener('click', function() {
+      menu.children[0].style.color = "brown";
+    });
+    menu.children[1].addEventListener('click', function() {
+      menu.children[1].style.color = "brown";
+    });
+    menu.children[2].addEventListener('click', function() {
+      menu.children[2].style.color = "brown";
+    });
+    menu.children[3].addEventListener('click', function() {
+      menu.children[4].style.color = "brown";
+    });
+    menu.children[4].addEventListener('click', function() {
+      menu.children[4].style.color = "brown";
+    }); */
+  </script>
+</body>
+</html>
